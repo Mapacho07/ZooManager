@@ -52,6 +52,11 @@ public class Animal {
         this.zooZone = ZonasZoo.CONSERVACIONYRESCATE;
     }
 
+    @Override
+    public String toString() {
+        return "Animal{" + "idAnimal=" + idAnimal + ", NombreAnimal=" + NombreAnimal + ", Especie=" + Especie + ", FechaNacimiento=" + FechaNacimiento + ", zooZone=" + zooZone + '}';
+    }
+
     
     
             
