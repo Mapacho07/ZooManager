@@ -43,11 +43,11 @@ public class Recorrido {
         }
     }
 
-    public Recorrido(Guías Guia) {
+    public Recorrido(Guías Guia, Visitante visitantes[]) {
         this.Guia = Guia;
-        this.Fecha = Fecha;
+        this.Fecha = LocalDate.now();
         this.visitantes = visitantes;
-        this.Animales = this.Animales = new Animal[50];
+        this.Animales = new Animal[50];
     }
     
     
