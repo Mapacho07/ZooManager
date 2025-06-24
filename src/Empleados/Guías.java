@@ -4,25 +4,25 @@
  */
 package Empleados;
 
+import Recorridos.Recorrido;
 import Animales.Animal;
 import java.time.LocalDate;
-import java.util.Scanner;
+import Visitantes.Visitante;
 
 /**
  *
  * @author Student
  */
 public class Guías extends Empleado {
-     Scanner scan = new Scanner(System.in);
     private String[] Idiomas;
-    private String[] RegistroRecorrido;
+    private Recorrido RegistroRecorrido[];
     
 
     public String[] getIdiomas() {
         return Idiomas;
     }
 
-    public String[] getRegistroRecorrido() {
+    public Recorrido[] getRegistroRecorrido() {
         return RegistroRecorrido;
     }
     
@@ -30,22 +30,18 @@ public class Guías extends Empleado {
         this.Idiomas = Idiomas;
     }
     
-    public void RecorridoGuiadoVisitantes (){
-        for (int i=0;i<200;i++){
-            if (RegistroRecorrido[i]==null){
-                RegistroRecorrido[i]= "Se le hizo recorrido a: "+scan;
+    
+    public void RecorridoGuiadoVisitantes (Visitante Visitantes[]){
+        for (int i = 0; i < 50; i++) {
+            if(RegistroRecorrido[i]==null){
+                RegistroRecorrido[i]=new Recorrido(this,Visitantes);
                 break;
             }
         }
     }
            
-    public void InforAnimalVisto(Animal idAnimal){
-        for(int i=0;i<200;i++){
-            if (RegistroRecorrido[i]==null){
-                RegistroRecorrido[i]= "Información del Animal observado: "+ idAnimal;
-                break;
-            }
-        }
+    public String InforAnimalVisto(Animal idAnimal){
+        return "Se dió información de: "+ idAnimal;
     }
 
     public void añadirIdiomas(String language){
@@ -60,7 +56,7 @@ public class Guías extends Empleado {
     public Guías(String[] Idiomas, String[] RegistroRecorrido, double SalarioMen, String cedula, String NombreComp, LocalDate FechaNacimiento, String Telefono) {
         super(SalarioMen, cedula, NombreComp, FechaNacimiento, Telefono);
         this.Idiomas = new String[25];
-        this.RegistroRecorrido= new String[200];
+        this.RegistroRecorrido= new Recorrido[200];
     }
 
     @Override
