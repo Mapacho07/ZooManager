@@ -45,7 +45,7 @@ public class Cuidadores extends Empleado {
         }
     }
             
-    public Cuidadores( int cedula, String NombreComp, LocalDate FechaNacimiento, String Telefono, double SalarioMen,String Especialidad) {
+    public Cuidadores(String cedula, String NombreComp, LocalDate FechaNacimiento, String Telefono, double SalarioMen,String Especialidad) {
         super(cedula, NombreComp, FechaNacimiento, Telefono, SalarioMen);
         this.Especialidad = Especialidad;
         this.RegistroActividades = new String[156];
