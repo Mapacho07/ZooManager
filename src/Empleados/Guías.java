@@ -47,9 +47,18 @@ public class Guías extends Empleado {
             }
         }
     }
+
+    public void añadirIdiomas(String language){
+        for (int i = 0; i < 15; i++) {
+            if(Idiomas[i]==null){
+                Idiomas[i]=language;
+                break;
+            }
+        }
+    }
     
-    public Guías( int cedula, String NombreComp, LocalDate FechaNacimiento, String Telefono, double SalarioMen) {
-        super(cedula, NombreComp, FechaNacimiento, Telefono, SalarioMen);
+    public Guías(String[] Idiomas, String[] RegistroRecorrido, double SalarioMen, String cedula, String NombreComp, LocalDate FechaNacimiento, String Telefono) {
+        super(SalarioMen, cedula, NombreComp, FechaNacimiento, Telefono);
         this.Idiomas = new String[25];
         this.RegistroRecorrido= new String[200];
     }
