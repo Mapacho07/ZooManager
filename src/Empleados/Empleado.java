@@ -4,44 +4,18 @@
  */
 package Empleados;
 
+import Personas.Persona;
 import java.time.LocalDate;
 import java.time.Period;
 /**
  *
  * @author Student
  */
-public class Empleado {
-    protected int cedula;
-    protected String NombreComp;
-    protected LocalDate FechaNacimiento;
-    protected String Telefono;
+public class Empleado extends Persona {
     protected double SalarioMen;
-
-    public int getCedula() {
-        return cedula;
-    }
-
-    public String getNombreComp() {
-        return NombreComp;
-    }
-
-    public LocalDate getFechaNacimiento() {
-        return FechaNacimiento;
-    }
-
-    public String getTelefono() {
-        return Telefono;
-    }
 
     public double getSalarioMen() {
         return SalarioMen;
-    }
-
-    public void setTelefono(String Telefono) {
-        if(Telefono!=null && Telefono.matches("^\\d{2}-\\d{2}-\\d{2}-\\d{2}")){
-        this.Telefono = Telefono;
-        }
-       
     }
 
     public void setSalarioMen(double SalarioMen) {
@@ -50,18 +24,10 @@ public class Empleado {
         }
     }
 
-    public Empleado(int cedula, String NombreComp, LocalDate FechaNacimiento, String Telefono, double SalarioMen) {
-        this.cedula = cedula;
-        this.NombreComp = NombreComp;
-        if(FechaNacimiento!=null && !FechaNacimiento.isAfter(LocalDate.now()) && 18 < Period.between(FechaNacimiento,LocalDate.now()).getYears()){
-            this.FechaNacimiento = FechaNacimiento;
-        }
-        if(Telefono!=null && Telefono.matches("^\\d{2}-\\d{2}-\\d{2}-\\d{2}")){
-            this.Telefono = Telefono;
-        }
-        if(SalarioMen>=300000){
+    public Empleado(double SalarioMen, String cedula, String NombreComp, LocalDate FechaNacimiento, String Telefono) {
+        super(cedula, NombreComp, FechaNacimiento, Telefono);
+        if(SalarioMen>=300000)
             this.SalarioMen = SalarioMen;
-        }
     }
 
     @Override
