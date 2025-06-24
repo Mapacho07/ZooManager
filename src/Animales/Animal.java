@@ -4,6 +4,7 @@
  */
 package Animales;
 
+import Utils.UtilDate;
 import java.time.LocalDate;
 /**
  *
@@ -36,6 +37,10 @@ public class Animal {
         return zooZone;
     }
 
+    public int ObtnerEdad(){
+        return UtilDate.CalcuarEdad(FechaNacimiento);
+    }
+    
     public void setZooZone(ZonasZoo zooZone) {
         this.zooZone = zooZone;
     }
@@ -46,7 +51,7 @@ public class Animal {
         }
         this.NombreAnimal = NombreAnimal;
         this.Especie = Especie;
-        if(FechaNacimiento!=null && !FechaNacimiento.isAfter(LocalDate.now())){
+        if(FechaNacimiento!=null && UtilDate.ValidarFechasFut(LocalDate.now())){
             this.FechaNacimiento = FechaNacimiento;
         }
         this.zooZone = ZonasZoo.CONSERVACIONYRESCATE;
